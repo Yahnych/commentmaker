@@ -4,7 +4,7 @@
   font-size: 100%;
   color: black;
   font-family:'Libre Baskerville', serif;
-  line-height: 1.3em;
+  line-height: 1em;
 }
 body {
   width: 100%;
@@ -29,17 +29,16 @@ header {
 }
 #left * {
   color: white;
-  line-height: 1.3em;
+  line-height: 1em;
 }
 #left h1 {
-  font-size: 3.5em;
-  padding-bottom: 1em;
-  float: left;
+  font-size: 3em;
+  padding-bottom: 0.3em;
   font-family: 'Trocchi', serif;
   color: #69D2E7;
 }
 #left h2 {
-  font-size: 2.5em;
+  font-size: 2em;
   padding-bottom: 1em;
   font-family: 'Trocchi', serif;
   color: #69D2E7;
@@ -50,12 +49,12 @@ h2.template {
 #left p {
   padding-bottom: 1em;
   line-height: 1.7em;
-  font-size: 1.2em;
+  font-size: 1em;
   
 }
 #inputs p {
   padding-bottom: 1em;
-  font-size: 1.3em;
+  font-size: 1em;
 }
 #inputs {
   padding-top: 1em;
@@ -74,7 +73,7 @@ h2.template {
   background-image: url(images/paper.png);
 }
 #right p {
-  font-size: 1.5em;
+  font-size: 1.3em;
   line-height: 1.5em;
   padding-bottom: 1em;
   clear: both;
@@ -85,7 +84,7 @@ input[type=text] {
   background-color: black;
   border: 1px #69D2E7 dashed;
   padding: 0.5em;
-  font-size: 1.4em;
+  font-size: 1.2em;
   width: 10em;
 }
 
@@ -95,32 +94,34 @@ select {
   background-color: black;
   border: 1px #69D2E7 none;
   padding: 0.5em;
-  font-size: 1.3em;
+  font-size: 1.2em;
 }
 span.label {
   width: 20%;
   padding: 0.5em;
   border-color: white;
   margin-right: 1em;
-  font-size: 1.4em;
+  font-size: 1.2em;
 }
 span {
-  font-size: 1.3em;
+  font-size: 1em;
 }
 #templateDiv, #instructions {
   padding-top: 2em;
 }
-#template {
-  
+#template, #personalComment {
   background-color: black;
   border: 1px #69D2E7 dashed;
-  padding: 1em;;
+  padding: 1.2em;;
   width: 86%;
   line-height: 2em;
   margin-top: 1em;
   margin-bottom: 1em;
-  font-size: 1.3em;
-  
+  font-size: 1.2em;
+}
+#personalComment { 
+  height: 4em;
+  margin-top: 0em;
 }
 #left button {
   display: block;

@@ -4,9 +4,10 @@
   var templateText, templateTextArea, scrollHeight, inputsDiv,
     keysInTemplate, template, makeStoryButton, newStory,
     updateTemplateButton, randomRadios, keyInputs,
-    optionInput, optionNumberInput, genderSelector, gender, optionSelected,
+    optionInput, optionNumberInput, genderSelector, gender,
     keyIntructions, maximumNumberOfOptions, storyOptionSelector,
-    storyOptionsDiv,
+    storyOptionsDiv, personalComment,
+    optionSelected = 1,
     keyObject = {};
 
   //HTML elements
@@ -22,16 +23,16 @@
   storyOptionSelector = document.querySelector("#storyOptionSelector");
   genderSelector = document.querySelector("#gender");
   keyIntructions = document.querySelector("#keyIntructions");
+  personalComment = document.querySelector("#personalComment");
 
   //Initilize the template
-  templateText = "[hero] lived in a [place] and was a [prince of the realm, lonely wanderer, skilled magician]. One day he came across [a venomous toad, an evil fairy, a suspicious old crone] and immediately [reached for his sword, fell asleep, wondered what would happen next]. But in the next instant, [hero] felt [a drop of rain, strangely quesy, a small hand tugging at his sleeve] and realized [how bad the situation really was, that he was dreaming, that he had been followed by a dwarf].";
+  templateText = "[name] wrote [an excellent, a good, a fair] essay on [topic]. Her writing skills [are well-developed and, are developing and, need practice but] she wrote [a highly imaginative, thoughtful, acceptable] children's storybook. She has [an excellent, a very good, a reasonable] understanding of basic grammar, as exhibited by her quiz. [name] [produced work of a high standard and she has shown an impressive commitment in class, produced good quality work this term and [name]'s skills will continue to improve with practice, shows an ability in English but should remember to maintain focus when in class].";
   //store.clear()
   loadTemplate();
 
   function loadTemplate() {
     //Load the template from local storage if it exists
     var storedTemplate = store.get("template");
-    //console.log(storedTemplate.name)
     if (storedTemplate !== undefined) {
       if (storedTemplate.name !== undefined) {
         //Retrieve the template and turn <br> line breaks back
@@ -97,10 +98,8 @@
     maximumNumberOfOptions = story.getMaximumNumberOfOptions(template);
     console.log(maximumNumberOfOptions);
     if (maximumNumberOfOptions !== undefined) {
-      var el = document.createElement("option");
-      el.textContent = "Random";
-      el.value = undefined;
-      storyOptionSelector.appendChild(el);
+      //var el = document.createElement("option");
+      //storyOptionSelector.appendChild(el);
       for (var i = 1; i <= maximumNumberOfOptions; i++) {
         var el = document.createElement("option");
         el.textContent = i;
@@ -139,7 +138,8 @@
       //store.set("template", template);
       store.set("template", {
         name: template
-      })
+      });
+      console.log("optionSelected: " + optionSelected);
       //Make a new story and assign it to the innerHTML of
       //the <p> tag on the right side of the screen
       newStory.innerHTML = story.make({
@@ -148,6 +148,8 @@
         optionNumber: optionSelected,
         gender: gender
       });
+      //Add the personal comment
+      newStory.innerHTML += " " + personalComment.value;
     }
   }
 
@@ -191,7 +193,6 @@
 
   //Number option input
   storyOptionSelector.addEventListener("change", optionSelectedHandler, false);
-
   function optionSelectedHandler() {
     optionSelected = storyOptionSelector.value;
   }

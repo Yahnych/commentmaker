@@ -1,7 +1,7 @@
 <!doctype html>
 <meta charset="utf-8">
 <meta name=viewport content="width=device-width, initial-scale=1.0, minimum-scale=0.5 maximum-scale=1.0">
-<title>Story maker</title>
+<title>Comment maker</title>
 <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Trocchi' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="storyMaker.css">
@@ -9,102 +9,73 @@
 <body>
   <div id="left">
     <header>
-      <h1>Story Maker</h1>
+      <h1>Comment Maker</h1>
     </header>
     <div id="templateDiv">
-      <header>
-        <header>
-          <p>Set some options and click the "Make Story" button to see what happens.</p>
-          <p id="keyIntructions">Define the keys for your story:</p>
-          <div id="inputs"></div>
-          <div  id="storyOptionsDiv">
-          <p>Story options:</p>
-          <p><select id="storyOptionSelector"></select></p>
-          </div>
-            <p>Optionally, select a gender to format "he", "she", "him", "her" or "it":</p>
-          <p>
-            <select id="gender" name="gender">
-              <option value="none">None</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="it">It</option>
-            </select>
-          </p>
-          <p>
-            <br>
-            <button id="makeStoryButton" value="Make Story!">Make Story!</button>
-          </p>
-          <textarea id="template" data-widearea="enable"></textarea>
-          <p>
-            <button id="updateTemplateButton" value="Update Template">Update Template</button>
-          </p>
-          <p>
-            <br>
-            <br>You can change the story template (the text above) in any way you like. If you add new story keys to the template, click the "Update Template" button. Your new keys keys will then be loaded above the template, and you can give them new values. After you've finished giving the keys new values, click the "Make Story" button again to see your new story.</p>
+      <p>A quick and flexible way for teachers to make report card comments.</p>
+      <p id="keyIntructions">1. Set the specifics (like the student or assignment name):</p>
+      <div id="inputs"></div>
+      <div id="storyOptionsDiv">
+        <p>2. Set the student's ability level (1 is best):</p>
+        <p>
+          <select id="storyOptionSelector"></select>
+        </p>
+      </div>
+      <p>3. Select the student's gender:</p>
+      <p>
+        <select id="gender" name="gender">
+          <option value="female">Female</option>
+          <option value="male">Male</option>
+        </select>
+      </p>
+      <p>4. Add an optional personal comment:</p>
+      <textarea id="personalComment"></textarea>
+      <p>
+        <br>
+        <button id="makeStoryButton" value="Make Comment!">Make Comment!</button>
+      </p>
+      <textarea id="template" data-widearea="enable"></textarea>
+      <p>
+        <button id="updateTemplateButton" value="Update Template">Update Template</button>
+      </p>
+      <p>
+        <br>
+        <br>You can change the comment template (the text above) in any way you like. The stuff inside the square brackets are called the "keys", and let you assign custom values for each student. If you add new keys to the template, like [name] or [assignment], click the "Update Template" button. Your new keys will then be loaded above the template, and you can give them new values. After you've finished giving the keys new values, click the "Make Comment" button again to create your new comment. Read the instructions below for further details on how to completely customize the comment template in any way you like.</p>
     </div>
     <div id="instructions">
       <h2>Instructions</h2>
-      <p>Single words inside square brackets will be replaced with whatever words you give them above. These are called the story "keys". Here are some examples of story keys.
+      <p>Single words inside square brackets will be replaced with whatever words you give them in the template above. These are called the comment "keys". Here are some examples of comment keys.
         <p class="example">[name]
-          <br>[place]
-          <br>[treasure]
+          <br>[topic]
+          <br>[assignment]
         </p>
-        <p>When you add these to your template, click the "Update Template" button and change their values. When you click "Make Story", the keys will be replaced by the values you gave them.</p>
-        <p>Story options are words in square brackets separated by commas. Here's an example of three story options:</p>
-        <p class="example">[a toad, a fairy, an old crone]</p>
-        <p>If you set the story options to "random" then one of these three options will be chosen randomly. If you set it to "number", enter a number to choose which story option should be used (1, 2, 3, etc). For example, if you set the option number to "2", then "a fairy" would be chosen from the story options above. Using this system you can quickly create many different stories from one template. It's a lot of fun, and you can use as many story options as you like.</p>
-        <p>If you need to, you can set the gender of pronouns. This will determine whether the story uses "he", "she", "him" or "her". This probably isn't useful for most stories, but it could have some uses (like writing report card comments - see below.)</p>
-        <p>Remember: every time you change the story template, click the "Update Template" button. Define your new story keys, then click "Make Story" to see your new story.</p>
+        <p>When you add these to your template, click the "Update Template" button and change their values. When you click "Make Comment", the keys will be replaced by the values you gave them.</p>
+        <p>Comment options are words in square brackets separated by commas. Here's an example of a comment option with three possible choices:</p>
+        <p class="example">[excellent, good, fair]</p>
+        <p>The option chosen depends on the number you set for the student's ability level. For example, if you set the ability level to "2", then "good" will be chosen from the options above. Using this system you can quickly create many different comments from one template. It's a lot of fun to write, and you can use as many options as you like.</p>
+        <p>Finally, set the student's gender. This will determine whether the comment uses "he", "she", "him" or "her".</p>
+        <p>Remember: every time you change the comment template, click the "Update Template" button. Define your new comment keys and options, then click "Make Comment" to see your new comment. Keep experimenting until you find a combination of elements that you like.</p>
+      <p>The template is saved each time you click the "Make Comment" button, so there's no risk of losing your work.</p>
 
-        <h2>Example templates</h2>
-        <p>Here are some example story templates to help you get started. This first one is the beginning of a traditional fairytale:</p>
-        <p class="example">[hero] lived in a [place] and was a [prince of the realm, lonely wanderer, skilled magician]. One day he came across [a venomous toad, an evil fairy, a suspicious old crone] and immediately [reached for his sword, fell asleep, wondered what would happen next]. But in the next instant, [hero] felt [a drop of rain, strangely quesy, a small hand tugging at his sleeve] and realized [how bad the situation really was, that he was dreaming, that he had been followed by a dwarf].</p>
+        <h2>Example template</h2>
+        <p>Here's an example of a comment template to help you get started. Copy it into the template box above and customize it to make a template that's suitable for the course or subject that you're teaching.</p>
+        <p class="example">[name] wrote [an excellent, a good, a fair] essay on [topic]. Her writing skills [are well-developed and, are developing and, need practice but] she wrote [a highly imaginative, thoughtful, acceptable] children's storybook. She has [an excellent, a very good, a reasonable] understanding of basic grammar, as exhibited by her quiz. [name] [produced work of a high standard and she has shown an impressive commitment in class, produced good quality work this term and [name]'s skills will continue to improve with practice, shows an ability in English but should remember to maintain focus when in class].</p>
         <p>
-          <br>The Story Maker is not just for stories! Here's an example of how you can use the Story Maker to write a form letter to your friends and family.</p>
-        <p class="example">Hi [Mom, Dad, Jessica]! I'm having a [great, Ok, terrible] time in [school, my job, Cambodia]. I just found out that I [made the Dean's honor role, have a huge report due next week, was robbed on the train and they took my passport and money]. Please [don't worry about me, give my love to everyone there, send me money fast]!</p>
-        <p>
-          <br>And, if you're a teacher, here's an example of how you can use the Story Maker to create custom report card comments. Just change the story option number depending on the student's ability level. (Set this in the "story option number" setting above.) For example, the best students would be "1", the second best "2" and so on. Then change the "gender" option to match student's gender. Customized report card comments like this are really time-consuming to write manually, but now you have a fast way to make them.</p>
-        <p class="example">[name] created [an excellent, a very good, a good] essay on [essaySubject]. Her writing skills [are well-developed and, are developing and, need practice but] she wrote [a highly imaginative, an imaginative, an interesting] children's storybook. She has [an excellent, a very good, a good] understanding of basic grammar, as exhibited by her quiz. [name] [produced work of a high standard and she has shown an impressive commitment in class, produced good quality work this term and her skills will continue to improve with practice, shows an ability in English but should remember to maintain focus when in class].</p>
-        <p>
-          <br>If your wrote an interesting story template, post it in the comments!</p>
-        <div id="disqus_thread"></div>
-        <script type="text/javascript">
-          /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-          var disqus_shortname = 'storymaker'; // required: replace example with your forum shortname
+          <h2>Help support the Comment Maker</h2>
+          <p>The Comment Maker depends on donations to operate. If it has saved you any time in your work, please consider making a donation of $5 to help keep this project active.</p>
+       <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
 
-          /* * * DON'T EDIT BELOW THIS LINE * * */
-          (function() {
-            var dsq = document.createElement('script');
-            dsq.type = 'text/javascript';
-            dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-          })();
-        </script>
-        <noscript>Please enable JavaScript to view the
-          <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-        <a href="http://disqus.com" class="dsq-brlink">comments powered by
-          <span class="logo-disqus">Disqus</span>
-        </a>
     </div>
   </div>
   <div id="right">
-    <p id="newStory">Enter something into the story keys and click the "Make Story" button!</p>
+    <p id="newStory">Welcome to the Comment Maker! This is a quick and flexible way for you to make specific and personalized report card comments based on your own template. If this is your first time using it, enter details about a student on the left and click the "Make Comment" button. Watch what happens, and compare the finished comment to the template. Then read the instructions further down to learn how to write a completely customized comment template for whatever subject or course you are teaching.</p>
   </div>
-  <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'storymaker'; // required: replace example with your forum shortname
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-      var s = document.createElement('script');
-      s.async = true;
-      s.type = 'text/javascript';
-      s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-  </script>
   <script src="rafPolyfill.js"></script>
   <script src="storyMaker.js"></script>
   <script src="store.js"></script>
