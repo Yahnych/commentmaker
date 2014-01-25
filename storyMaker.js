@@ -28,17 +28,37 @@ var story = {
     if (this.gender !== undefined) {
       //Set the correct gender
       if (this.gender.charAt(0) === "b" || this.gender.charAt(0) === "m") {
-        story = story.split(" to her ").join(" to him ");
+        story = story.split(" to her ").join(" to his ");
         story = story.split(" her ").join(" his ");
         story = story.split(" Her ").join(" His ");
         story = story.split(" she ").join(" he ");
         story = story.split(" She ").join(" He ");
+        //Versions with brackets
+        story = story.split("[to her ").join("[to his ");
+        story = story.split("[her ").join("[his ");
+        story = story.split("[Her ").join("[His ");
+        story = story.split("[she ").join("[he ");
+        story = story.split("[She ").join("[He ");
+        story = story.split(" to her]").join(" to his]");
+        story = story.split(" her]").join(" his]");
+        story = story.split(" Her]").join(" His]");
+        story = story.split(" she]").join(" he]");
+        story = story.split(" She]").join(" He]");
       }
       if (this.gender.charAt(0) === "g" || this.gender.charAt(0) === "f") {
         story = story.split(" his ").join(" her ");
         story = story.split(" His ").join(" Her ");
         story = story.split(" he ").join(" she ");
         story = story.split(" He ").join(" She ");
+        //Versions with brackets
+        story = story.split("[his ").join("[her ");
+        story = story.split("[His ").join("[Her ");
+        story = story.split("[he ").join("[she ");
+        story = story.split("[He ").join("[She ");
+        story = story.split(" his]").join(" her]");
+        story = story.split(" His]").join(" Her]");
+        story = story.split(" he]").join(" she]");
+        story = story.split(" He]").join(" She]");
       }
       if (this.gender.charAt(0) === "i" || this.gender === "it") {
         story = story.split(" his ").join(" its ");
@@ -50,6 +70,26 @@ var story = {
         story = story.split(" she ").join(" it ");
         story = story.split(" She ").join(" It ");
         story = story.split(" him ").join(" it ");
+        //Versions with brackets
+        story = story.split("[his ").join("[its ");
+        story = story.split("[His ").join("[Its ");
+        story = story.split("[he ").join("[it ");
+        story = story.split("[He ").join("[It ");
+        story = story.split("[her ").join("[its ");
+        story = story.split("[Her ").join("[Its ");
+        story = story.split("[she ").join("[it ");
+        story = story.split("[She ").join("[It ");
+        story = story.split("[him ").join("[it ");
+        story = story.split(" his]").join(" its]");
+        story = story.split(" His]").join(" Its]");
+        story = story.split(" he]").join(" it]");
+        story = story.split(" He]").join(" It]");
+        story = story.split(" her]").join(" its]");
+        story = story.split(" Her]").join(" Its]");
+        story = story.split(" she]").join(" it]");
+        story = story.split(" She]").join(" It]");
+        story = story.split(" him]").join(" it]");
+        
       }
     }
     //Next, set optional text based on the optionNumber number
